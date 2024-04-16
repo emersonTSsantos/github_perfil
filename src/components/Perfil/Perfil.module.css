@@ -18,3 +18,9 @@
     font-size: 18px;
     color:  var(--corSecundaria);
 }
+
+@media screen and (max-width: 768px) {
+    .header {
+        padding: 18px 0 10px;
+    }
+}

@@ -41,3 +41,12 @@
     color: rgb(204, 49, 49);
 }
 
+@media screen and (max-width: 768px) {
+    .list {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 6px;
+    }
+    
+}
+

@@ -23,3 +23,18 @@
     margin-left: 30%;
     margin-bottom: 50px;
 }
+
+/* Media query para dispositivos móveis */
+@media screen and (max-width: 768px) {
+    .input {
+        font-size: 20px;
+        padding-right: 0; /* Remove o preenchimento direito */
+        margin-left: 0; /* Remove a margem esquerda */
+        width: 100%; /* Define a largura como 100% para ocupar toda a largura do contêiner */
+    }
+
+    .campoTitulo {
+        font-size: 35px;
+    }
+}
+
