@@ -9,8 +9,11 @@ function App() {
     return (
 
     <>
-        <input type="text" onBlur={(e) => setNomeUsuario(e.target.value)}/>
+        <div className="campo">
+            <h1 className="campoTitulo">Busca de usuário GitHub</h1>
+        <input className="input" type="text" placeholder="Digite o nome do usuário:" onBlur={(e) => setNomeUsuario(e.target.value)}/>
 
+        </div>
         {nomeUsuario.length > 4 && (
             <>
 

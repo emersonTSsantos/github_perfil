@@ -10,3 +10,16 @@
     width: 100%;
     margin: 0 auto;
 }
+
+.campoTitulo {
+    text-align: center;
+    font-size: 50px;
+    color: rgb(96, 96, 192);
+}
+
+.input {
+    padding-right: 400px;
+    font-size: 35px;
+    margin-left: 30%;
+    margin-bottom: 50px;
+}

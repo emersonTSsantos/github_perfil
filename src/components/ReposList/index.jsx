@@ -5,16 +5,29 @@ import styles from './ReposList.module.css';
 const ResposList = ({ nomeUsuario }) => {
     const [repos, setRepos] = useState([]);
     const [estaCarregando, setEstaCarregando] = useState(true);
+    const [erro, setErro] = useState(null)
+
 
     useEffect(() => {
         setEstaCarregando(true)
+        setErro(null)
+
         fetch(`https://api.github.com/users/${nomeUsuario}/repos`)
-            .then(res => res.json())
+            .then(res => {
+                if (!res.ok) {
+                    throw new Error('OPS. Ocorreu um erro, Usuário não encontrado...');
+                }
+                return res.json();
+            })
             .then(resJson => {
                 setTimeout(() => {
                     setRepos(resJson);
-                    setEstaCarregando(false); // Indica que o carregamento foi concluído
+                    setEstaCarregando(false);
                 }, 2000);
+            })
+            .catch(error => {
+                setErro(error.message); 
+                setEstaCarregando(false); 
             });
     }, [nomeUsuario]);
 
@@ -25,6 +38,8 @@ const ResposList = ({ nomeUsuario }) => {
         <div className="container">
         {estaCarregando ? (
             <h1>Carregando...</h1>
+        ) :  erro ? (
+            <h1 className={styles.erro}>{erro}</h1>
         ) : (
             <ul className={styles.list}>
                 {repos.map(({id, name, language, html_url}) => (
